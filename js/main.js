@@ -37,3 +37,14 @@ function displayDate() {
 
 displayTime();
 displayDate();
+
+//------//
+
+//--insert user Photo--//
+
+function addPhoto() {
+    var userImg = document.getElementById("userImg");
+    userImg.src = "img/clouds.jpg";
+}
+
+addPhoto();
