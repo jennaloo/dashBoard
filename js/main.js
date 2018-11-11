@@ -1,4 +1,48 @@
-//--adding time--//
+//user Data ----//
+var user = {
+    name: "Jenna Murphy",
+    image: "img/jenna.jpg",
+    progress: 0.66
+}
+
+var courseArr = [{
+    title: "Readings in World Literature",
+    subject: "Social Studies"
+        }, {
+    title: "Theory of Numbers",
+    subject: "Mathematics"
+        }, {
+    title: "Farsi 301",
+    subject: "Languages"
+        }];
+
+var activityArr = [{
+    title: "Completed SOSC 503 Module 7 Quiz",
+    subject: "Submitted for review 6/11/18 at 10:39PM"
+        }, {
+    title: "Commented in MATH104 Tuesday Discussion Group",
+    subject: "Lorem ipsum dolores sit..."
+        }, {
+    title: "Enrolled in FARS301",
+    subject: "Cohort begins 9/08/18"
+        }];
+
+var accountArr = [{
+    title: "Enrolled since: ",
+    subject: "9/06/2017"
+        }, {
+    title: "Enrollment Status: ",
+    subject: "Active Student"
+        }, {
+    title: "Department",
+    subject: "Computer Science"
+        }];
+
+
+
+
+
+//--adds time and date here--//
 
 function formatTime(timeDenom) {
     if (timeDenom < 10) {
@@ -38,13 +82,31 @@ function displayDate() {
 displayTime();
 displayDate();
 
-//------//
-
-//--insert user Photo--//
-
-function addPhoto() {
+function addUserInfo(image, name, min, max) {
     var userImg = document.getElementById("userImg");
-    userImg.src = "img/clouds.jpg";
+    userImg.src = image;
+
+    var userName = document.getElementById('username');
+    userName.innerText = name;
+
+    var userIdSpace = document.getElementById('userId');
+
+
+    function randomNum(min, max) {
+        var randomInRange = Math.floor(Math.random() * (max - min + 1) + min);
+        return randomInRange;
+    }
+
+    var userId = randomNum(1000, 9000);
+    userIdSpace.innerText = "# " + userId;
+
 }
 
-addPhoto();
+addUserInfo(user.image, user.name, 1000, 9000);
+
+//--inserts user Photo--//
+
+
+//--inserts user name--//
+
+//--inserts random userID--//
