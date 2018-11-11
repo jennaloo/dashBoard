@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Dashboard</title>
@@ -42,9 +41,9 @@
     -->
         <div class="footer">
             <ul>
-                <li><a href="#" onclick="showCourses()">COURSES</a></li>
-                <li><a href="#" onclick="showActivity()">ACTIVITY</a></li>
-                <li><a href="#" onclick="showAccount()">ACCOUNT</a></li>
+                <li><a href="#" onclick="addContent('My Courses: ',courseArr)">COURSES</a></li>
+                <li><a href="#" onclick="addContent('My Activity: ',activityArr)">ACTIVITY</a></li>
+                <li><a href="#" onclick="addContent('My Account: ',accountArr)">ACCOUNT</a></li>
             </ul>
         </div>
         <!--
@@ -63,7 +62,5 @@
 
     <!-- Custom JavaScript -->
     <script src="js/main.js"></script>
-    <script src="userData.js"></script>
 </body>
-
 </html>

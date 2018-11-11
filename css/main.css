@@ -82,8 +82,8 @@ nav.open ul li span {
 }
 
 .user img {
-    height: 150px;
-    width: 150px;
+    height: 200px;
+    width: 200px;
     border-radius: 50%;
     box-shadow: -4px 6px 10px #2a3d4e;
 }
@@ -165,9 +165,5 @@ nav.open ul li span {
 }
 
 #time {
-    text-align: right;
-}
-
-#date {
     text-align: right;
 }

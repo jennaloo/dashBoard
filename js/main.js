@@ -79,18 +79,16 @@ function displayDate() {
     setInterval('displayDate()', 86400000)
 }
 
-displayTime();
-displayDate();
 
 function addUserInfo(image, name, min, max) {
+    //--inserts user Photo--//
     var userImg = document.getElementById("userImg");
     userImg.src = image;
-
+    //--inserts user name--//
     var userName = document.getElementById('username');
     userName.innerText = name;
-
+    //--inserts random userID--//
     var userIdSpace = document.getElementById('userId');
-
 
     function randomNum(min, max) {
         var randomInRange = Math.floor(Math.random() * (max - min + 1) + min);
@@ -101,12 +99,30 @@ function addUserInfo(image, name, min, max) {
     userIdSpace.innerText = "# " + userId;
 
 }
+//Note:works but does not add very object in array, 
+//its simply is overwriting it each time. But, if I use 
+//+= then clearing the lists doesn't work.
+function addContent(titleString, someArray) {
+    var myList = '';
+    var myInnerList = '';
+    var myh2 = document.getElementById('active-title');
+    myh2.innerText = titleString;
+    for (i = 0; i < someArray.length; i++) {
+        var myList = document.getElementById('active-list');
+        myList.innerHTML = "<li>" + someArray[i].title + "</li>";
+        var myInnerList = document.createElement('ul');
+        myInnerList.innerHTML = "<li>" + someArray[i].subject + "</li>";
+        myList.appendChild(myInnerList);
+    }
+}
+
+function progressBar() {
+    var progressCSS = document.getElementById('progress');
+    console.log(user.progress * 100 + '%');
+    progressCSS.style.width = user.progress * 100 + '%';
+}
 
 addUserInfo(user.image, user.name, 1000, 9000);
-
-//--inserts user Photo--//
-
-
-//--inserts user name--//
-
-//--inserts random userID--//
+displayTime();
+displayDate();
+progressBar();
