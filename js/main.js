@@ -65,7 +65,7 @@ function displayTime() {
     }
     document.getElementById("time").innerText = clock;
 
-    setInterval('displayTime()', 1000);
+    //    setInterval('displayTime()', 1000);
 }
 
 function displayDate() {
@@ -76,10 +76,11 @@ function displayDate() {
 
     var date = "" + (mm + 1) + "/" + dd + "/" + yy + "";
     document.getElementById("date").innerText = date;
-    setInterval('displayDate()', 86400000)
+    //    setInterval('displayDate()', 86400000)
 }
 
 
+//--Adds user info
 function addUserInfo(image, name, min, max) {
     //--inserts user Photo--//
     var userImg = document.getElementById("userImg");
@@ -99,29 +100,31 @@ function addUserInfo(image, name, min, max) {
     userIdSpace.innerText = "# " + userId;
 
 }
-//Note:works but does not add very object in array, 
-//its simply is overwriting it each time. But, if I use 
-//+= then clearing the lists doesn't work.
-function addContent(titleString, someArray) {
-    var myList = '';
-    var myInnerList = '';
+
+//Adds title of selected item and 
+//fills in content from the user data
+//object
+function addContent(activeTitle, someArray) {
     var myh2 = document.getElementById('active-title');
-    myh2.innerText = titleString;
-    for (i = 0; i < someArray.length; i++) {
-        var myList = document.getElementById('active-list');
-        myList.innerHTML = "<li>" + someArray[i].title + "</li>";
-        var myInnerList = document.createElement('ul');
-        myInnerList.innerHTML = "<li>" + someArray[i].subject + "</li>";
-        myList.appendChild(myInnerList);
-    }
+    myh2.innerText = activeTitle;
+    var activeUl = document.getElementById('active-list');
+    activeUl.innerHTML = "<li>" + courseArr[0].title + "</li>" + "<p>" + someArray[0].subject + "</p>" +
+        "<li>" + someArray[1].title + "</li>" +
+        "<p>" + someArray[1].subject + "</p>" +
+        "<li>" + someArray[2].title + "</li>" +
+        "<p>" + someArray[2].subject + "</p>"
 }
 
+//sets the progress bar depending on 
+//user data
 function progressBar() {
     var progressCSS = document.getElementById('progress');
-    console.log(user.progress * 100 + '%');
     progressCSS.style.width = user.progress * 100 + '%';
+    var progressPercent = document.getElementById('progress-percent');
+    progressPercent.innerText = user.progress * 100 + '%';
 }
 
+//executes any immediate functions.
 addUserInfo(user.image, user.name, 1000, 9000);
 displayTime();
 displayDate();
